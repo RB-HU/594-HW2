@@ -18,7 +18,7 @@ public class MyTree<T extends Comparable<T>> {
 
     private MyNode<T> insertHelper(MyNode<T> current, T item) {
         int cmp = item.compareTo(current.getItem());
-        if (cmp == 0) return current; // 已存在
+        if (cmp == 0) return current;
 
         if (cmp < 0) {
             if (current.getLeft() == null) {
@@ -63,12 +63,14 @@ public class MyTree<T extends Comparable<T>> {
     }
 
     private void deleteNode(MyNode<T> z) {
+        //edge case: the node is leaf or only has one child
         if (z.getLeft() == null) {
             transplant(z, z.getRight());
         } else if (z.getRight() == null) {
             transplant(z, z.getLeft());
         } else {
             MyNode<T> y = minimum(z.getRight());
+            // if the successor is not the immediate child, we must handle its subtree
             if (y.getParent() != z) {
                 transplant(y, y.getRight());
                 y.setRight(z.getRight());

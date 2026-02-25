@@ -1,5 +1,5 @@
 
-public class MyNode {
+public class MyNode<T> {
     private T item;
     private MyNode<T> left = null;
     private MyNode<T> right = null;

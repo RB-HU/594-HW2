@@ -1,3 +1,4 @@
+
 public class MyNode {
     private T item;
     private MyNode<T> left = null;

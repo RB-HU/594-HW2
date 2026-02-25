@@ -22,7 +22,7 @@ public class MyHashTable<T extends Comparable<T>> {
     }
 
     public MyNode<T> add(T item) {
-        if (item == null) throw new IllegalArgumentException("Null not allowed");
+        if (item == null) throw new IllegalArgumentException("Null is not allowed");
         int idx = getIndex(item);
         if (body[idx] == null) body[idx] = new MyTree<>();
 
@@ -33,19 +33,17 @@ public class MyHashTable<T extends Comparable<T>> {
     }
 
     private int getTreeSize(MyTree<T> tree) {
-        // 由于MyTree中size是私有的，可以通过遍历或在MyTree中增加getSize
-        // 这里假设我们在MyTree中有一个简单的逻辑或手动维护
-        return (tree.getRoot() == null) ? 0 : 1; // 简化逻辑，实际应由Tree维护
+        return (tree.getRoot() == null) ? 0 : 1;
     }
 
     public MyNode<T> contains(T item) {
-        if (item == null) throw new IllegalArgumentException("Null not allowed");
+        if (item == null) throw new IllegalArgumentException("Null is not allowed");
         int idx = getIndex(item);
         return (body[idx] == null) ? null : body[idx].contains(item);
     }
 
     public boolean remove(T item) {
-        if (item == null) throw new IllegalArgumentException("Null not allowed");
+        if (item == null) throw new IllegalArgumentException("Null is not allowed");
         int idx = getIndex(item);
         if (body[idx] == null) return false;
 
@@ -65,16 +63,16 @@ public class MyHashTable<T extends Comparable<T>> {
 
     public static void main(String[] args) {
         MyHashTable<String> table = new MyHashTable<>(10);
-        System.out.println("Adding: A, B, C, D, E");
-        table.add("A"); table.add("B"); table.add("C"); table.add("D"); table.add("E");
-
-        System.out.println("Size: " + table.size());
-        System.out.println("Contains 'A': " + (table.contains("A") != null));
-        System.out.println("Contains 'Z': " + (table.contains("Z") != null));
-
-        System.out.println("Add existing 'A': " + table.add("A").getItem());
-        System.out.println("Remove 'B': " + table.remove("B"));
-        System.out.println("Remove 'B' again: " + table.remove("B"));
-        System.out.println("Final Size: " + table.size());
+        System.out.println(table.add("CIT591").getItem());
+        System.out.println(table.add("CIT592").getItem());
+        System.out.println(table.add("CIT593").getItem());
+        System.out.println(table.add("CIT594").getItem());
+        System.out.println(table.add("CIT595&596").getItem());
+        System.out.println("Table Size: " + table.size());
+        System.out.println("Contains 'CIT591': " + (table.contains("CIT591")  != null));
+        System.out.println("Contains 'CIS520': " + (table.contains("CIS520") != null));
+        System.out.println(table.add("CIT591").getItem());
+        System.out.println(table.remove("CIT592"));
+        System.out.println(table.remove("CIT592"));
     }
 }

@@ -14,6 +14,6 @@ public class MyNode<T> {
     public MyNode<T> getRight() { return right; }
     public void setRight(MyNode<T> right) { this.right = right; }
     public MyNode<T> getParent() { return parent; }
-    public void setParent(MyNode<T> parent) { this.parent = parent; }
+    //public void setParent(MyNode<T> parent) { this.parent = parent; }
 
 }

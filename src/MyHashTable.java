@@ -73,6 +73,6 @@ public class MyHashTable<T extends Comparable<T>> {
         System.out.println("Contains 'CIS520': " + (table.contains("CIS520") != null));
         System.out.println(table.add("CIT591").getItem());
         System.out.println(table.remove("CIT592"));
-        System.out.println(table.remove("CIT592"));
+        //System.out.println(table.remove("CIT592"));
     }
 }
